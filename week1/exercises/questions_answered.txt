@@ -1,0 +1,68 @@
+1. How do you search your man-pages for a given keyword?
+Hint: man man|less +/keyword -j.5
+
+or: use "man {command}" and then type "/{keyword}". use n and N to go up and down.
+
+
+
+2. Suppose you need to type the command basename. Which characters do you need to type in your system before command-line completion can complete your typing?
+
+"basen-" because there are multiple called "base-"
+
+
+
+3. In many systems command-line completion can also complete long options to many POSIX utilities. Does your shell completes long options? 
+Suppose you need to type the command mkdir --parents. Which characters do you need to actually type when using command-line completion?
+
+"mkd" and "--p"
+
+
+
+4. How do you create a folder with a subfolder (say prog/hello)? Hint: man mkdir | grep -B1 "make parent".
+
+mkdir prog/hello -p
+-p makes sure that the parentage makes sense
+
+
+
+5. Which option instructs the rm command to ask the user for a confirmation before every removal? Hint: man rm|grep "prompt before".
+
+-i
+
+
+6. Which option instructs the rm command to remove a folder with all subfolders? Hint: man rm|grep -B1 "remove directories".
+
+-r, remove recursively all contents of folder and then folder itself
+
+
+
+7. Which unix command lists the files in a directory in one column sorted by modification time with the newest last?
+
+-c shows the time
+-t sorts the list by modification time (newest first)
+-r reverses the list
+-l shows long information (one column)
+
+
+8. What do symbols ., .., ~ mean in the context of the unix file utilities?
+
+. is current directory
+.. is upper directory (parent)
+~ is the home directory (default /home/norre)
+
+
+9. Where will the command cd without any arguments lead you?
+
+cd is implicitly cd ~
+
+
+
+10. What is your home directory? Name also alternative notations.
+
+/home/norre
+i dont like it, so i modified ~/.bashrc to include the two extra lines at the bottom:
+
+PROMPT_DIRTRIM=2	which makes the directory header shorter
+cd /mnt/c/users/chrno/google\ drev/uni/semester\ 6/prog		which puts me into my main folder
+
+the ~/.bashrc is run whenever the terminal is opened
