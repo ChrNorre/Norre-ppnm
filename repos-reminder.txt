@@ -1,0 +1,9 @@
+My repository address is: https://github.com/ChrNorre/Norre-ppnm.git
+
+To clone (copy all files in the repository to my current directory), use
+git clone address-of-your-repository ./
+
+To add changes after an excersise, do the following
+git add --all
+git commit --all -m 'comment here'
+git push
