@@ -1,0 +1,58 @@
+
+1. What is the main function?
+The main function is the one that is called when an executable is run, thus, if there is no main function, the code cannot run.
+The main function should return 0 if the code was executed succesfully.
+
+
+2. What is compilation and linking (of a C-program)? What is source code, object code, executable code?
+Compilation is the process of translating code from one language to another. For C, this will be from source code, which is the code we physically write, to object code, which is written in a language which is native to our processor. Linking is the act of combining object code with whatever it needs (libraries or other object files) to be able to run. This linking will make an executable file which is able to run on our processor.
+
+
+3. How can you compile and link a C-program which is wholly contained in one file, say hello.c? How do you run the resulting executable code?
+[gcc hello.c -o hello], where gcc is our compiler of choice, hello.c is the file to be compiled, and -o hello, tells the compiler to put the output in a file called hello. Unless otherwise specified (like here), the compiler will compile and link.
+[./hello], will run the code. ./ is needed to specify the location of the file to be run.
+
+
+
+4. How do you supply the compiler with the description of the printf function? Why do you need to do this? How do you link the printf function?
+The standard C language does not have a function called printf, so we need to get it from somewhere. This somewhere is stdio.h, which contains the description of printf. This is a header file, and means that when the compiler is run, it first does preprosessing which inserts header files where they are requested and then, afterwards, compiles. This means that the printf function is now included in the compiled file. (This might just be a decleration however, and not actually included untill the final linking, i dunno).
+#include<stdio.h>
+
+
+
+
+5. What is stdio.h? Why angle-brackets in #include<stdio.h>? Hint: C preprocessor: including files.
+standard input-output. <> are to specify to the preprocessor where to look for the header file. <> is the standard search path, but "" includes the current directory. <> just helps avoid filename shadowing.
+
+
+
+
+6. How can you get the manual page of the C standard library function printf? Hint: there is also a utility printf in a POSIX system and man printf will show you the manual page for the printf utility, not the printf function from the C standard library.
+man 3 printf
+3, to specify that this code is from a library, and not a bash command. 
+
+
+
+7. What are the built-in data types for numbers in the C-language?
+int, float, double, long (long double), and complex variants
+
+
+
+8. What is the result of the operation 1/2 in C?
+0, as 1 and 2 are int's and integer division returns an int, meaning all decimals are ignored. 1/2 = 0.5 => 0
+
+
+
+9. In order to use the C mathematical functions, do you need to include any header files? Link any library? Hint: man sin.
+#include<math.h>
+#include<complex.h>
+
+
+
+10. What is tgmath.h? If you use tgmath.h do you need to link any library?
+math functions with generic types, (overloading) same functions but for different parameter types.
+from man tgmath.h, it seems that math.h and complex.h are already included in tgmath.h, so it might be unnessesary to include them explicitly. It is unnessesary, i just checked.
+#include<tgmath.h> is enough.
+
+
+
