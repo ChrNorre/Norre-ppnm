@@ -1,0 +1,34 @@
+ßý]Ùÿ
+testing komplex_add...
+a= (1,2)
+b= (3,4)
+a+b should   =  (4,6)
+a+b actually =  (4,6)
+
+testing komplex_sub...
+a= (1,2)
+b= (3,4)
+a-b should   =  (-2,-2)
+a-b actually =  (-2,-2)
+
+testing komplex_conjugate...
+a= (1,2)
+a* should   =  (1,-2)
+a* actually =  (1,-2)
+
+testing komplex_abs...
+b= (3,4)
+abs(b) should   = 5
+abs(b) actually = 5
+
+testing komplex_mul...
+a= (1,2)
+b= (3,4)
+a*b should   =  (-5,10)
+a*b actually =  (-5,10)
+
+testing komplex_div...
+a= (1,2)
+b= (3,4)
+b/a should   =  (2.2,-0.4)
+b/a actually =  (2.2,-0.4)

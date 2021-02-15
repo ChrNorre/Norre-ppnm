@@ -1,0 +1,23 @@
+1.What is the meaning of the following makefile variables: $@, $<, $^, CFLAGS, LDFLAGS, LDLIBS.
+
+$@ is target variable
+$< is first prerequisite
+$^ is all prerequisites
+CFLAGS is the default flags passed to the C compiler
+LDFLAGS is the default flags passed to the linker
+LDLIBS is the default libraries to be linked by the linker
+
+
+2. What will the following makefile print (after running command make) and why,
+
+CFLAGS
+FFLAGS
+FFLAGS
+-Wall -Ofast -std=c1x
+
+because thats how makefiles work.
+
+3. Suppose you have your whole C-program in one file main.c. Which of the following makefiles will compile and link the program into the executable file main?
+
+all except 6. as "make" will only run the first line, and this only links.
+the rest are implicit

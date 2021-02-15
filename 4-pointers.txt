@@ -1,0 +1,80 @@
+1.How are arguments passed to functions in C: by-value or by-reference? And what does that mean?
+Hint: C syntax → argument passing.
+
+In C, arguments are passed by value. This means that a function receives a copy of the value of the argument.
+A function can thus not change the value that is stored at the input argument. This is good for the most part,
+as we will never be confused that a complicated function changes our variables. 
+We have to specifically include the addressing to allow this.
+
+
+
+2. If double x=1.23, what is *(&x)?
+
+& means "the address of:"
+* means "the value at address:"
+so &x is the address where x is stored in memory
+*(&x) is the value at the address where x is stored, which is just the value of x. 
+*(&x) is a double with value 1.23
+
+
+
+3. What is NULL? Hint: null pointer.
+
+NULL is the default pointer when there is no valid object. NULL is the supertype of all objects,
+as all arguments could be replaced by NULL, but not otherwise.
+
+
+
+4. What happens to variables declared inside a function when the function exits (returns)?
+
+They get deleted (dereferenced).
+
+
+
+5. What is a static variable? Hint: static variable.
+
+A variable which persist for the lifetime of the execution. They get allocated and never automatically deallocated.
+
+
+6. What will the following three programs print out and why?
+
+first will print i=1, as f(i) does not change the value of i, as it does not have access to the original i.
+second will print i=0 as f now gets the address to i, and f changes the value at that address.
+third will print i=NULL as NULL is a valid int. (does the same as second)
+
+
+
+
+
+7.If you pass an array to a function with the signature void f(double a[]) – what is actually passed to the function:
+a copy of the whole array?
+the pointer a to the first element of the array?
+a copy of the pointer to the first element?
+something else?
+Hint: C syntax → argument passing → array parameters.
+
+ii. the pointer to the first element of the array.
+This is because an array, is actually a pointer, not the values, so a pointer gets passed.
+
+
+
+
+8.When the function with the signature void f(double a[]) gets the array as parameter – can it figure out the size of the array?
+
+yes, i believe so. i could test it, but C is not a good language for small programs
+
+
+
+
+
+9. If you declare an array as int a[5]; and then try a[999]=1; what will might happen? Hint: Segmentation fault / causes.
+
+It should ideally say "index out of bounds", because a should only have 5 elements
+but it might autoextend the a array to allow for indexing 999.
+
+
+
+
+10. If you declare an i) static, ii) variable-length, iii) dynamic array inside a function, can the function return it?
+
+i should think so, yes, as passed arrays are just pointers, but static could be overwritten later
