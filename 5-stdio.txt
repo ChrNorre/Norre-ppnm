@@ -1,0 +1,74 @@
+1. What are standard input, standard output and standard error in the context of POSIX programming?
+
+They are streams which have an undefined length and can therefore "stream" continuously.
+standard streams are used for the program to interact with its surroundings.
+standard input is a stream which is connected to the keybord by default. 
+This means that, when the program is running, everything typed into the terminal will be put into the standard input stream (but not nessecarially used).
+standard outpu stream is connected to the terminal, such that everything the program puts into standard output
+gets printed on the terminal.
+standard error is an outgoing stream used for error or warning messages (also connected to terminal by default).
+This is a seperate stream to keep the true output clean if wanted.
+
+
+
+2. What is EOF in the context of scanf?
+
+to my knowledge, EOF (end of file) is the terminating value for a stream,
+such that the program knows the stream is finished when it encounters an EOF.
+When reading a file, it will often have a finite length, so we need to tell the program when to stop reading.
+
+
+
+3. Where to does the function printf write?
+
+printf is writing to the stdout stream, which is connected to the terminal display by default.
+
+
+
+4. Where from does the function scanf read?
+
+from the standard input stream, can be changed to another stream by fscanf()
+
+
+
+5. How do you redirect the standard output of a program to a file?
+
+./program 1> file
+this 1> means that it redirects the stdout into the file, file, instead of writing it to terminal.
+(2>) for stderr
+
+
+
+6. How do you send the content of a file into a program's standard input?
+
+./program < file
+this < means that file will be read as a stream and fed to the programs stdin
+(instead of stdin being linked to the keyboard (terminal))
+
+
+
+7. How do you connect the standard output of a program to the standard input of another program?
+
+./program1 | ./program2
+| is a pipeline, it takes the stdout of program1 and pipes it into stdin of program2
+
+
+
+8. Suppose your main function, contained in the file main.c, calls the functions foo and bar which are contained correspondingly in the files foo.c and bar.c. Which of the following makefiles will correctly compile and link your program into the executable file main after the command make?
+
+
+all of them work
+
+
+
+
+9. Suppose there is the following preprocessor directive at the beginning of the file,
+#define PI 3.1415927
+what is the effect of it?
+The compiler creates a variable PI of type double and stores the value 3.1415927 in it.
+All occurences of the token 'PI' in the file are substituted with the token '3.1415927'.
+
+
+
+b.
+
