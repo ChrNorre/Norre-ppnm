@@ -15,8 +15,9 @@ int main(int argc, char** argv){
 	int items;
 	do {
 		items = fscanf(infile,"%lg",&x);
+		if (items == EOF) break;
 		fprintf(outfile,"%lg\t\t%.4lg\t\t%.4lg\n",x,sin(x),cos(x));
-	} while(items != EOF);
+	} while(1);
 
 return 0;
 }

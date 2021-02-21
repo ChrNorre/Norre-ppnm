@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -O -Wall -std=gnu11
+CFLAGS = -O -Wall -std=gnu11 -fwrapv
 LDLIBS = -lm
 
 default: out.txt

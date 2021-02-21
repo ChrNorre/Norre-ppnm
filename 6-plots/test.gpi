@@ -1,0 +1,20 @@
+\
+set terminal png;\
+set output "complexgam.png";\
+set nokey;\
+set xlabel "real";\
+set ylabel "imag";\
+set zlabel "abs(Gamma(z))";\
+set title "Absolute value of complex Gamma function";\
+set xrange [-4.2:4.2];\
+set xtics -4,1,4 ; set mxtics 0.5;\
+set yrange [-4.2:4.2];\
+set ytics -4,1,4 ; set mytics 0.5;\
+set zrange [0:6];\
+set ztics 1 ; set mztics 0.5;\
+set size 8 square;\
+set view -40, 20;\
+set grid;\
+set samples grid 120x120;\
+plot 3d "xyz_out.txt" using 1:2:3 with surface fillc red;\
+

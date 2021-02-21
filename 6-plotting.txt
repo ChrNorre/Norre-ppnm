@@ -1,0 +1,148 @@
+1. In gnuplot, how do you specify the ranges on the x- and y- axes?
+
+set xrange [-2:2]
+set yrange [-2:2]
+there are extra options for additional functionality
+the syntax is the same for pyxplot
+
+
+
+
+
+2. In the datafile for gnuplot, how do you separate data intended for separate lines on the plot?
+
+By a separator token, either \t, comma or a space. The easiest way to read data is by coloumns.
+
+
+
+
+3. Suppose you have a data-file with several columns of data. With gnuplot, how do you plot, say, third column vs. second?
+Hint: in gnuplot: help plot using.
+
+plot 'data.dat' using 3:2
+where '3' and '2' refers to the third and second column. The order refers to which axis they are plotted on. First number is the x-values, second is the y-values.
+
+
+
+
+
+
+4. Suppose you have a data-file with (x,y) data organised in two columns. How do you plot, say, y^2 vs. x?
+Hint: in gnuplot: help plot using.
+
+plot 'data.dat' using (1):($2*$2)
+or reverse depending on what 'a vs b' means.
+$num is to specify that it is a column reference, and not a number. $2*$2 thus multiplies each element in the second column by itself, thus creating a y^2 column which is plotted.
+
+
+
+
+
+
+5. How can you find out whether GSL is installed on your box? Hint: gsl-config.
+
+if running the command works, then it is installed. 
+gsl-config --version
+to check which version of GSL you have (i have 2.5)
+
+
+
+
+
+6. How can you find out which C-flags you need to use with your GSL installation? Hint: gsl-config.
+
+gsl-config --cflags
+This returns the additional options needed by the compiler (pre-processor) to find the GSL libraries. it speficies an additional entry for #include
+
+
+
+
+7. How can you find out which libraries you need to link with your GSL installation? Hint: gsl-config.
+
+gsl-config --libs
+This returns the options for the linker which are needed to get GSL to work 
+Analogous to -lm
+
+
+
+
+
+8. Explain the syntax `command` and $(command) in bash. Hint: Bash command substitution; POSIX shell command substitution.
+
+these do the same thing. They specify that what is between the parantheses should be run as a bash command, and the output should be captured and literally be pasted to where the $() was.
+
+On running a command which includes a $(command)
+	some bash code $(command) some more bash code
+becomes
+	some bash code {literal output of running "command"} some more bash code
+
+
+
+
+
+9. Why do you need double-dollar, $$(command), in the Makefile? Hint: GNU make: variables in recipes.
+
+$(command) already has a meaning in make, which is a variable lookup
+it is thus just made into $$(command) in make to keep a recognisable form
+
+
+
+
+10. What is "recipe echoing"?
+
+when "make" is performed, by default, each line is pasted to the terminal before being executed
+this is to make it clear exactly which commands are performed.
+a line can be preceded by @ which supresses the line copying to terminal.
+The documentation mentions that this is most useful for "echo" commands
+when using echo, we mostly want to paste some text to terminal.
+but by default, make would write
+	echo "text"
+	text
+to the terminal which is ugly and redundant.
+
+
+
+
+
+11. What will the following Makefile print?
+
+pwd = a string
+test:
+	@echo pwd
+	@echo `pwd`
+	@echo $(pwd)
+	@echo $$(pwd)
+
+the first line is just echo pwd, which prints the string pwd to terminal
+the second is of the command format for make, thus pwd is performed as a command in bash before
+echo is run. pwd is print-working-directory, so second line would return the working dir
+the third line is of the form of variable lookup it make, so it prints "a string"
+the fourth line is again of the bash command form in make, so it prints the working dir
+
+
+
+
+12. In C-language "type conversion" (or "coersion" or "casting") is allowed with the explicit cast operator (type)variable. So, what does the following line mean?
+
+double  a = *(double*)params;
+
+*pointer dereferences the pointer (looks at what is at the address)
+so this code reinterprets params as a pointer to a double, and then looks at what is stored at the pointer (which is assumed to be a double)
+This would not be the same as what was stored in params
+
+
+
+
+
+
+NOTES ON 3D surface plot
+
+i tried using x y and z tables in seperate files, but it didn't work at all
+the data should just be put into columns in the same file
+
+"using 1:2:3" is redundant if data is already of the type x y z, but if there were 2 z's
+then 1:2:3 and 1:2:4 could be used to plot both surfaces.
+
+i still dont know how to remove the grid on the surface itself,
+or equivalantly, i dont know how to increase the number of points for the surface, without plotting denser grid
+

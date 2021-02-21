@@ -1,0 +1,29 @@
+
+system int_max is: 2147483647
+for loop int max is: 2147483647
+while loop int max is: 2147483647
+do-while loop int max is: 2147483647
+
+system int_max is: -2147483648
+while loop int min is: -2147483648
+for loop int min is: -2147483648
+do-while loop int min is: -2147483648
+
+Double epsilon = 2.2204460492503e-16
+DBL_EPSILON = 2.2204460492503e-16
+
+Float epsilon = 0.00000011920929
+FLT_EPSILON = 0.00000011920929
+
+Long Double epsilon = 1.0842021724855e-19
+LDBL_EPSILON = 1.0842021724855e-19
+
+sum_up_float = 15.40368271
+sum_down_float = 18.80791855
+up-down = -3.40423584
+
+sum_up_double = 21.371631151251
+sum_down_double = 21.371631145932
+up-down = 5.3189594950709e-09
+
+equaltest = 1

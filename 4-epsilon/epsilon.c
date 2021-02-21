@@ -8,39 +8,49 @@ int equal(double a, double b, double tau, double epsilon);
 
 void int_max(){
 	// I use gcc, and my i continues to grow larger than INT_MAX, (does not overflow to negative numbers)
+	printf("\nsystem int_max is: %i\n",INT_MAX);
+	int for_loop_max;
 	for(int i= INT_MAX-10; i+1>i; i++){
-		printf("INT_MAX - i = %d\n",INT_MAX-i);
+		//printf("INT_MAX - i = %d\n",INT_MAX-i);
+		for_loop_max = i;
 	}
+	printf("for loop int max is: %i\n",for_loop_max+1);
 
 	int i = INT_MAX-10;
 	while(i+1>i){
-		printf("INT_MAX - i = %d\n",INT_MAX-i);
+		//printf("INT_MAX - i = %d\n",INT_MAX-i);
 		i++;
 	}
+	printf("while loop int max is: %i\n",i);
 
 	i = INT_MAX-10;
 	do {
-		printf("INT_MAX - i = %d\n",INT_MAX-i);
+		//printf("INT_MAX - i = %d\n",INT_MAX-i);
 		i++;
 	} while(i+1>i);
+	printf("do-while loop int max is: %i\n",i);
 }
 
 void int_min(){
 	//same problem as INT_MAX, 
-	
+	printf("\nsystem int_max is: %i\n",INT_MIN);
 	int i = INT_MIN+10;
 	while(i-1<i){
 		i--;
 	}
-	printf("min int is = %d\n",i);
+	printf("while loop int min is: %i\n",i);
 
+	int for_loop_min;
 	for(int i=INT_MIN+10; i-1<i; i--) {
-		printf("INT_MIN - i = %d\n",INT_MIN-i);
+		//printf("INT_MIN - i = %d\n",INT_MIN-i);
+		for_loop_min = i;
 	}
-	
+	printf("for loop int min is: %i\n",for_loop_min-1);
+
+
 	i = INT_MIN+10;
 	do {i--;} while(i-1<i);
-	printf("min int is = %d\n",i);
+	printf("do-while loop int min is: %i\n",i);
 
 }
 
@@ -124,8 +134,8 @@ void float_sum(){
 
 int main(){
 	
-	//int_max();
-	//int_min();
+	int_max();
+	int_min();
 	find_epsilon();
 	float_sum();
 	
