@@ -1,0 +1,15 @@
+\
+set terminal png;\
+set output "bessel.png";\
+set key outside;\
+set xlabel "x";\
+set ylabel "$j_n(x)$";\
+set title "Bessel function of the first kind";\
+plot \
+ "bessel.txt" using 1:2 with line title "order 0 by integration"\
+,"bessel_ref.txt" using 1:2 with points title "order 0 by jn function"\
+,"bessel.txt" using 1:3 with line title "order 1 by integration"\
+,"bessel_ref.txt" using 1:3 with points title "order 1 by jn function"\
+,"bessel.txt" using 1:4 with line title "order 2 by integration"\
+,"bessel_ref.txt" using 1:4 with points title "order 2 by jn function"\
+

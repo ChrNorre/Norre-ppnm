@@ -1,0 +1,51 @@
+CFLAGS = -Wall -Werror -O1
+CFLAGS += $(shell gsl-config --cflags)
+LDLIBS += $(shell gsl-config --libs)
+CC = gcc
+
+
+default: main_lnsqrt erf.png bessel.png Makefile
+	./$<
+
+
+out.erf.txt: main_erf
+	./$< > out.erf.txt
+
+bessel.txt bessel_ref.txt: main_bessel
+	./$<
+
+erf.png: out.erf.txt Makefile
+	echo '\
+	set terminal png;\
+	set output "$@";\
+	set key top left;\
+	set xlabel "x";\
+	set ylabel "Erf(x)";\
+	set title "Error function";\
+	plot \
+	 "$<" using 1:2 with line title "Erf from integration"\
+	,"$<" using 1:3 with line title "Erf from math.h"\
+	,"erf_table.txt" using 1:2 with points title "tabulated data"\
+	' | tee test.gpi | pyxplot	
+
+bessel.png: bessel.txt bessel_ref.txt Makefile
+	echo '\
+	set terminal png;\
+	set output "$@";\
+	set key outside;\
+	set xlabel "x";\
+	set ylabel "$$j_n(x)$$";\
+	set title "Bessel function of the first kind";\
+	plot \
+	 "bessel.txt" using 1:2 with line title "order 0 by integration"\
+	,"bessel_ref.txt" using 1:2 with points title "order 0 by jn function"\
+	,"bessel.txt" using 1:3 with line title "order 1 by integration"\
+	,"bessel_ref.txt" using 1:3 with points title "order 1 by jn function"\
+	,"bessel.txt" using 1:4 with line title "order 2 by integration"\
+	,"bessel_ref.txt" using 1:4 with points title "order 2 by jn function"\
+	' | tee test.gpi | pyxplot	
+
+
+
+clean: 
+	$(RM) out* main_lnsqrt main_erf main_bessel test.gpi erf.png bessel.png bessel.txt bessel_ref.txt
