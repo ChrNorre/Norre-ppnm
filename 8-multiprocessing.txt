@@ -1,0 +1,87 @@
+1. What is pthreads? Hint: man pthreads.
+
+pthreads is the posix standard for multithreading.
+Multithreading is where you have multiple branches of code running at the same time
+#cores = #simultaneous threads
+
+
+
+2. Which header files do you have to include in order to use pthreads? Hint: man pthread_create.
+
+#include<pthread.h>
+
+
+
+
+
+3. Do you need any CFLAGS and/or LDLIBS to use pthreads?
+
+you need the "-pthread" option for CFLAGS
+
+
+
+
+4. How do you create a pthread?
+
+you first need to declare a thread type, and some attributes.
+then you can create with "pthread_create". It takes the address of a pthread_t variable,
+some attributes (we use NULL), a function to run (we use pi), and and argument to that function.
+We then have to join the thread to the main one to obtain the result. 
+
+pthread_t thread1;
+pthread_attr_t* attributes = NULL;
+
+pthread_create(&thread1, attributes, pi, (void*)&p1);
+
+pthread_join(thread1,retval);
+
+
+
+
+
+5. What is "thread-safe"? Hint: man pthreads|less --pattern=safe.
+
+thread-safe is a function which doesnt conflict when called from different threads.
+rand used a specific location in memory to generate a random number,
+so all threads used this same location. this is not thread safe.
+rand_r used a userspecified seed, and thus can be thread safe.
+
+my gsl_quasi-random implementation is slow. it might not be thread safe?
+
+
+
+
+
+6. Is rand thread-safe? Hint: man rand_r.
+
+rand is not, but rand_r is.
+
+
+
+
+
+7. What happens if you forget to join a joinable thread? Hint: man pthread_join|less --pattern=NOTE.
+
+it creates zombie-threads, which are technically still running, but which cannot be used. They arent doing anything productive, and takes up a thread. it is the equivalent of remembering to free workspace.
+
+
+
+8. What is OpenMP?
+
+open multiprocessing.
+
+it attempts to streamline the workflow, so it is clearer to the programmer.
+it works by writing a bunch of commands for the pre-processor which ends up having the same effect as pthread, but more readable.
+
+
+
+9. Does your compiler supports OpenMP?
+
+yes, if i remember to include the proper CFLAGS for the pre-processor to be able to perform the necesarry commands.
+
+
+
+10. What are the CFLAGS and LDLIBS for your installation of OpenMP?
+
+CFLAGS += -fopenmp
+LDLIBS += -lgomp

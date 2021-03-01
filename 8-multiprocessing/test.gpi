@@ -1,0 +1,15 @@
+\
+f(x) = a1*x;\
+g(x) = -0.5*x;\
+fit f() outpi.txt via a1;\
+set terminal png;\
+set output "fit.png";\
+set key top right;\
+set xlabel "log$_{10}(N)$";\
+set ylabel "log$_{10}|\pi - pi(N)|$";\
+set title "Monte Carlo for $\pi$";\
+plot \
+ "outpi.txt" with points title "Pi estimates"\
+,f(x) with line title "fitted function"\
+,g(x) with line title "log$_{10}(1/\sqrt{N})$"\
+
