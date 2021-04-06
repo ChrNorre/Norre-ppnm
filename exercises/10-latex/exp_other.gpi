@@ -1,0 +1,12 @@
+set term pdf
+set width 8
+set xlabel "$x$"
+set ylabel "$y$"
+set logscale y 
+set output "exp_other.pdf"
+set key bottom right
+
+plot [][1e-16:100] "outdata.txt" using 1:5 with lines  linewidth 3  title "ex(x)-neg(x)" \
+, "outdata.txt" using 1:7 with lines linewidth 3 title "ex(x)-longsum(x)" \
+, "outdata.txt" using 1:6 with lines  linewidth 3  title "ex(x)-nohalf(x)" \
+, "outdata.txt" using 1:8 with lines linewidth 4  linetype 2 title  "ex(x)-naive(x)"

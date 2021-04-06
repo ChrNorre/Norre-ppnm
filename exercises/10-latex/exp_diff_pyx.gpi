@@ -1,0 +1,7 @@
+set term pdf
+set width 8
+set xlabel "$x$"
+set ylabel "$y$"
+set output "exp_diff_pyx.pdf"
+set key top left
+plot "outdata.txt" using 1:4 with lines title "exp(x)-ex(x)"

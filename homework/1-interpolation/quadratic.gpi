@@ -1,0 +1,10 @@
+set term png
+set xlabel "$x$"
+set ylabel "$y$" 
+set output "quadratic.png"
+set key outside
+set title "quadratic interpolation"
+plot [][] "quadratic.txt" using 1:2 with lines linewidth 2 title "quaterp(z)" \
+, "quadratic.txt" using 1:3 with lines  linewidth 2  title "quaterp-int(z)" \
+, "quadratic.txt" using 1:4 with lines linewidth 2  title  "quaterp-diff(z)" \
+, "datapoints.txt" using 1:2 with points title "discrete points"

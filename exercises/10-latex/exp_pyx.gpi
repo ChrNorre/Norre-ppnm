@@ -1,0 +1,8 @@
+set term pdf
+set width 8
+set xlabel "$x$"
+set ylabel "$y$"
+set output "exp_pyx.pdf"
+set key top left
+plot "outdata.txt" using 1:3 with lines title "math.h exp(x)" \
+,"outdata.txt" using 1:2 with lines title "ex(x)"
