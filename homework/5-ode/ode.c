@@ -1,6 +1,7 @@
 #include<gsl/gsl_vector.h>
 #include<gsl/gsl_blas.h>
 #include<math.h>
+#include"ode.h"
 
 void rkstep23(
 	void (*f)(double, gsl_vector*, gsl_vector*), /* the f from dy/dt=f(t,y) */

@@ -1,20 +1,13 @@
 #include<gsl/gsl_vector.h>
 #include<gsl/gsl_blas.h>
 #include<math.h>
+#include"ode.h"
 
 void print_vectors(gsl_vector* a, gsl_vector* b){
 	for (int i=0; i<a->size; i++){
 		printf("%10g %10g\n",gsl_vector_get(a,i),gsl_vector_get(b,i));
 	}
 }
-
-void driver(
-	void (*f)(double,gsl_vector*,gsl_vector*), 
-	double a, gsl_vector* ya, 
-	double b, gsl_vector* yb, 
-	double h, 
-	double acc, double eps,
-	FILE* path);
 
 
 void three_body(double t, gsl_vector* y, gsl_vector* dydt){

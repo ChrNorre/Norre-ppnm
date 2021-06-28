@@ -1,0 +1,20 @@
+
+Rootfinding
+
+1D testfunction: f(x)=1-x^2, x0 = 0.5
+Root found at x = 1.000000, should be x=+-1
+x0 = -0.5
+Root found at x = -1.000000, should be x=+-1
+
+2D testfunction: f1(x,y)=2-x^2-y^2,  f2(x,y)=2-x^3-y^3
+x0 = 2, y0 = 3
+Root found at (x,y) = (0.999996,1.000004), should be (x,y) = (1,1)
+
+Rosenbrock: f(x,y) = (1-x)^2 + 100*(y-x^2)^2
+Finding extremum by rootfinding on its gradient
+f1(x,y)=2x - 400x(y-x^2) - 2 = 0
+f2(x,y)=200y - 200x^2 = 0
+x0 = 2, y0 = 3
+Root found at (x,y) = (1.000000,1.000000), should be (x,y) = (1,1)
+Solving for minimum energy of radial part of hydrogen atom
+E0 = -0.7,  E_root = -0.500001, should be E_actual = -0.5

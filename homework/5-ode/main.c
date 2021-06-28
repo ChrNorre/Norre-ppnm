@@ -1,16 +1,7 @@
 #include<gsl/gsl_vector.h>
 #include<gsl/gsl_blas.h>
 #include<math.h>
-
-
-void driver(
-	void (*f)(double,gsl_vector*,gsl_vector*), 
-	double a, gsl_vector* ya, 
-	double b, gsl_vector* yb, 
-	double h, 
-	double acc, double eps,
-	FILE* path);
-
+#include"ode.h"
 
 void HO(double t, gsl_vector* y, gsl_vector* dydt){
 	//harmonic oscilaltor

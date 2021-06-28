@@ -1,0 +1,9 @@
+
+Integral over unit disc for N=1e6  =  3.14287 +/- 0.00164129
+
+Integral over complicated function for N=1e6  =  1.3947 +/- 0.00776	 |diff|=0.00149 +/- 0.00776
+
+Integral of |x|*exp(-r*r) over 8D unit sphere for N=1e6  =  0.467437 +/- 0.00451
+
+Comparing scaling of error
+ See produced figure
