@@ -21,7 +21,6 @@ I would rate my work as [6 + 3 + 0] = 9 out of 10 (on the same scale used for ho
 Considering how long we got for this exam, and how easy it would be, 
 	I might as well have made my own Akima sub-spline, though, 
 	I see that that would be another exam question.
-Due to other exams, i started working on 26-06-2021
 
 
 
@@ -97,9 +96,9 @@ Integration from x0 to z:
 for each interval xi to x(i+1), the integral gives
 yi*xp + 1/2 * pi*xp**2 + 1/3 *ci*xp**3 + 1/4 *di*xp**4			(given xp = x(i+1)-xi)
 which factors into:
-1/12 * xp * [12*yi + 6*pi*xp + 4*ci*xp**2 + 3*di*xp**3]
+1/12 * xp * [12*yi + 6*pi*xp + 4*ci*xp**2 + 3*di*xp**3]		(eq1)
 given condition (1):
-1/12 * xp * [3*y(i+1) + 9*yi  + 3*pi*xp +   ci*xp**2]
+1/12 * xp * [3*y(i+1) + 9*yi  + 3*pi*xp +   ci*xp**2]		(eq2)
 
 find i, so xi < z < x(i+1)
 integral(Si(z)) = 
@@ -109,6 +108,8 @@ for j<i
 
 xp = z - xi
 + 1/12 * xp * [3*Si(z) + 9*yi  + 3*pi*xp +   ci*xp**2]
+
+unsurprisingly, eq1 and eq2 gives the same result
 
 
 

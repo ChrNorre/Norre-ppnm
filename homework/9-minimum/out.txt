@@ -8,6 +8,8 @@ Himmelblau minimum:
 (x0,y0) = (1,1)
 Minimum found at (x,y) = (3.000000,2.000000), in 84 steps
 Function value is 0.000000, Gradient here is (-0.000008,-0.000015)
+
+Higgs data analysis:
 With an initial guess of (m0,Gamma0,A0) = (1,1,1)
 The deviation function gets minimized for:
 (m,Gamma,A) = (125.972, 2.08634, 9.87628)

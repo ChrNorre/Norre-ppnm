@@ -73,6 +73,7 @@ int main(){
 
 
 	//Higgs
+	printf("\nHiggs data analysis:\n");
 	int Ei;
 	double sigi, deli;
 	FILE* data = fopen("higgs.txt","r");

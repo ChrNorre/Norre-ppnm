@@ -1,19 +1,30 @@
 
-int(sqrt(x))[0,1] = 2/3 = 0.666667 in 11168 calls to integrand
-int(4*sqrt(1-x*x))[0,1] = pi = 3.14159 in 25748 calls to integrand
+int(sqrt(x))[0,1] = 2/3 = 	 0.666667 +/- 2.29906e-09	 in 11168 calls to integrand
+int(4*sqrt(1-x*x))[0,1] = pi = 	 3.14159 +/- 3.0392e-09	 in 25748 calls to integrand
 
-without CC,	 int(1/sqrt(x))[0,1] = 2 = 2 in 5131180 calls to integrand
-via CC,		 int(1/sqrt(x))[0,1] = 2 = 2 in 14276 calls to integrand
-without CC,	 int(ln(x)/sqrt(x))[0,1] = -4 = -4 in 26472532 calls to integrand
-via CC,		 int(ln(x)/sqrt(x))[0,1] = -4 = -4 in 71808 calls to integrand
+without CC,	 int(1/sqrt(x))[0,1] = 2 =	 2 +/- 3.85742e-09	 in 5131180 calls to integrand
+via CC,		 int(1/sqrt(x))[0,1] = 2 =	 2 +/- 2.51232e-09	 in 14276 calls to integrand
+without CC,	 int(ln(x)/sqrt(x))[0,1] = -4 =	 -4 +/- 5.26664e-09	 in 26472532 calls to integrand
+via CC,		 int(ln(x)/sqrt(x))[0,1] = -4 =	 -4 +/- 5.12971e-09	 in 98044 calls to integrand
 
-Digits of pi via int(4*sqrt(1-x*x))[0,1] = PI:
+Digits of pi via int(4*sqrt(1-x*x))[0,1] = PI:       for abs = rel = 1e-4 for all
 pi from memory = 3.141592653589793238462643383279502884197169399375105820
-without CC,		  calls =   25748 	  => 3.1415926535897993332 	 |diff| = 6.2172e-15
-with CC,		  calls =   30540 	  => 3.141592653589793116 	 |diff| = 0
+without CC,		  calls =      80 	  => 3.1415975077026305762 	 |diff| = 4.8541e-06
+with CC,		  calls =     120 	  => 3.1415926611746209929 	 |diff| = 7.5848e-09
 with simple gsl,	  calls =      87 	  => 3.141592719906342257 	 |diff| = 6.6317e-08
-with adaptive gsl,	  calls = dunno 	  => 3.1415926535902984895 	 |diff| = 5.0537e-13
+with adaptive gsl,	  calls = dunno 	  => 3.1415930287396589549 	 |diff| = 3.7515e-07
 
 Every routine can fairly easily get within machine epsilon of M_PI
 With more time, it would be cool to make a plot with accuracy given to the integration along the x-axis,
 and deviation from PI along the y-axis, for the different routines to see how fast each of them reach PI
+
+
+Evauating infinite integrals:
+Integral of 1/(x*x)[1,inf] = 1   		= 1 +/- 1.11022e-16 	 in 4 calls
+Integral of 2/(1+x*x)[0,inf] = pi 		= 3.14159 +/- 1.53871e-07 	 in 2784 calls
+Integral of exp(-x*x)[-inf,inf] = sqrt(pi) 	= sqrt(3.14159) +/- 1.35013e-07 	 in 8112 calls
+
+The numbers are correct, so the relevant comparison between my integration and GSL
+   would be the number of calls, but number of calls is not easily given by GSL integration
+ I would need to restructure the way my code works to allow gsl_function to also increment my counter
+ Since i have not done this, im not sure im eligible for the final point

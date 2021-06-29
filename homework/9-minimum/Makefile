@@ -11,4 +11,4 @@ out.txt: main Makefile
 main: main.c minimum.o
 
 clean: 
-	$(RM) main *.o *.txt *.png
+	$(RM) main *.o out.* *.png
