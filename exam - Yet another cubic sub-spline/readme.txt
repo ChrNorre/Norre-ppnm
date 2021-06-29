@@ -8,6 +8,10 @@ My project is 10. Yet another cubic sub-spline
 
 COMMENTS:
 
+Please note that my figures are multiplots (Interpolation, derivative, integral, from left to right), 
+	so if you view them on github, you will have to scroll to the side to see the others
+	
+
 From the example plots I would say that my cubic sub-spline is somewhere between regular cubic and Akima, 
 	in the sense that my sub-spline doesn't eliminate wiggles imediately, like Akima, but one point over. 
 This is no surprise, as for Akima, the Si'(xi) is calculated as a weighted linear combination of 
